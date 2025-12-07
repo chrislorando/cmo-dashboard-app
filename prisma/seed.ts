@@ -28,7 +28,6 @@ async function main() {
       userId: user.id,
       type: 'category',
       name: 'Corp CMO/COO',
-      displayName: 'Corp CMO/COO',
       order: 1,
       
     },
@@ -41,7 +40,6 @@ async function main() {
       userId: user.id,
       type: 'category',
       name: 'CMO General',
-      displayName: 'CMO General',
       order: 2,
       
     },
@@ -54,7 +52,6 @@ async function main() {
       userId: user.id,
       type: 'category',
       name: 'CNO/FMD',
-      displayName: 'CNO/FMD',
       order: 3,
       
     },
@@ -66,18 +63,17 @@ async function main() {
       userId: user.id,
       type: 'category',
       name: 'CNO/FMD Facility',
-      displayName: 'CNO/FMD Facility',
       order: 4,
       
     },
   });
 
   const facilities = [
-    { name: 'yuma', displayName: 'Yuma', order: 1 },
-    { name: 'prescott', displayName: 'Prescott', order: 2 },
-    { name: 'maricopa', displayName: 'Maricopa', order: 3 },
-    { name: 'bhc', displayName: 'Bullhead City', order: 4 },
-    { name: 'eloy', displayName: 'Eloy', order: 5 },
+    { name: 'Yuma', order: 1 },
+    { name: 'Prescott', order: 2 },
+    { name: 'Maricopa', order: 3 },
+    { name: 'Bullhead City', order: 4 },
+    { name: 'Eloy', order: 5 },
   ];
 
   for (const facility of facilities) {
@@ -87,7 +83,6 @@ async function main() {
         parentId: cnoFacility.id,
         type: 'subcategory',
         name: facility.name,
-        displayName: facility.displayName,
         order: facility.order,
         
       },
@@ -100,7 +95,6 @@ async function main() {
       userId: user.id,
       type: 'category',
       name: 'Productivity',
-      displayName: 'Productivity',
       order: 5,
       
     },
