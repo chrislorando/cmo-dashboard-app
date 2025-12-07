@@ -34,7 +34,7 @@ export default function Sidebar() {
           ))}
         </div>
 
-        <button className="w-full py-2.5 px-4 rounded-lg border-none text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0">
+        <button className="w-full py-2.5 px-4 rounded-lg border-none text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0">
           Open Productivity Excel Online
         </button>
       </div>

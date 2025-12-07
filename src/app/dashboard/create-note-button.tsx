@@ -14,7 +14,7 @@ export default function CreateNoteButton({ categories }: CreateNoteButtonProps) 
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="px-5 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all"
+        className="px-5 py-2 rounded-lg bg-zinc-800 text-white text-sm font-medium hover:bg-zinc-900 transition-all"
       >
         + New Note
       </button>
