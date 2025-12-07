@@ -6,7 +6,6 @@ import { updateNote } from '@/app/actions/notes';
 interface FacilityNote {
   id: string;
   name: string;
-  displayName: string;
   content: string;
 }
 
@@ -64,14 +63,12 @@ export default function FacilityNotes({ title, icon, facilities }: FacilityNotes
               activeTab === index
                 ? 'bg-gray-900 text-white border-gray-900'
                 : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-            } border`}
-          >
-            {facility.displayName}
-          </button>
-        ))}
-      </div>
-
-      <textarea
+              } border`}
+            >
+              {facility.name}
+            </button>
+          ))}
+        </div>      <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Type notes for selected facility..."

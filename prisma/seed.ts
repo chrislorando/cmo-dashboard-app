@@ -27,7 +27,7 @@ async function main() {
     data: {
       userId: user.id,
       type: 'category',
-      name: 'corp_cmo_coo',
+      name: 'Corp CMO/COO',
       displayName: 'Corp CMO/COO',
       order: 1,
       
@@ -40,7 +40,7 @@ async function main() {
     data: {
       userId: user.id,
       type: 'category',
-      name: 'cmo_general',
+      name: 'CMO General',
       displayName: 'CMO General',
       order: 2,
       
@@ -53,7 +53,7 @@ async function main() {
     data: {
       userId: user.id,
       type: 'category',
-      name: 'cno_fmd',
+      name: 'CNO/FMD',
       displayName: 'CNO/FMD',
       order: 3,
       
@@ -65,7 +65,7 @@ async function main() {
     data: {
       userId: user.id,
       type: 'category',
-      name: 'cno_fmd_facility',
+      name: 'CNO/FMD Facility',
       displayName: 'CNO/FMD Facility',
       order: 4,
       
@@ -99,7 +99,7 @@ async function main() {
     data: {
       userId: user.id,
       type: 'category',
-      name: 'productivity',
+      name: 'Productivity',
       displayName: 'Productivity',
       order: 5,
       

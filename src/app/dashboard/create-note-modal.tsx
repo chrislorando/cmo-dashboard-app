@@ -6,12 +6,11 @@ import { createNote } from '@/app/actions/notes';
 interface CreateNoteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  categories: Array<{ id: string; name: string; displayName: string }>;
+  categories: Array<{ id: string; name: string; }>;
 }
 
 export default function CreateNoteModal({ isOpen, onClose, categories }: CreateNoteModalProps) {
   const [name, setName] = useState('');
-  const [displayName, setDisplayName] = useState('');
   const [type, setType] = useState('category');
   const [parentId, setParentId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,14 +22,14 @@ export default function CreateNoteModal({ isOpen, onClose, categories }: CreateN
     setIsSubmitting(true);
 
     try {
-      await createNote(name, displayName, type, '', type === 'subcategory' ? parentId : undefined);
+      await createNote(name, type, '', type === 'subcategory' ? parentId : undefined);
       setName('');
-      setDisplayName('');
       setType('category');
       setParentId('');
       onClose();
     } catch (error) {
       alert('Failed to create note');
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -57,33 +56,18 @@ export default function CreateNoteModal({ isOpen, onClose, categories }: CreateN
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Name (identifier)
+              Name
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g., my_custom_note"
+              placeholder="e.g., My custom note"
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <p className="text-xs text-gray-500 mt-1">Use lowercase with underscores</p>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Display Name
-            </label>
-            <input
-              type="text"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              placeholder="e.g., My Custom Note"
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <p className="text-xs text-gray-500 mt-1">This will be shown as the title</p>
-          </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -116,7 +100,7 @@ export default function CreateNoteModal({ isOpen, onClose, categories }: CreateN
                 <option value="">Select a parent category</option>
                 {categories.map((cat) => (
                   <option key={cat.id} value={cat.id}>
-                    {cat.displayName}
+                    {cat.name}
                   </option>
                 ))}
               </select>

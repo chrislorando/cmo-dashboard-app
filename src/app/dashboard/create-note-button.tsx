@@ -4,7 +4,7 @@ import { useState } from 'react';
 import CreateNoteModal from './create-note-modal';
 
 interface CreateNoteButtonProps {
-  categories: Array<{ id: string; name: string; displayName: string }>;
+  categories: Array<{ id: string; name: string }>;
 }
 
 export default function CreateNoteButton({ categories }: CreateNoteButtonProps) {

@@ -14,10 +14,11 @@ export async function getNotes() {
       userId: session.userId,
     },
     orderBy: [
-      { order: 'asc' },
-      { createdAt: 'asc' },
+      { createdAt: 'desc' },
     ],
   });
+
+  console.log(notes)
 
   return notes;
 }
@@ -42,7 +43,6 @@ export async function updateNote(noteId: string, content: string) {
 
 export async function createNote(
   name: string,
-  displayName: string,
   type: string,
   content: string,
   parentId?: string
@@ -53,7 +53,6 @@ export async function createNote(
     data: {
       userId: session.userId,
       name,
-      displayName,
       type,
       content,
       parentId,
@@ -66,7 +65,7 @@ export async function createNote(
 
 export async function updateNoteDetails(
   noteId: string,
-  displayName: string,
+  name: string,
   parentId?: string | null
 ) {
   const session = await verifySession();
@@ -77,7 +76,7 @@ export async function updateNoteDetails(
       userId: session.userId,
     },
     data: {
-      displayName,
+      name,
       parentId: parentId === null ? null : parentId,
       updatedAt: new Date(),
     },

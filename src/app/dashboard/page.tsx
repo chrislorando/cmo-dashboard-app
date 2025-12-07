@@ -1,10 +1,8 @@
 import { getUser } from '@/lib/dal';
 import { logout } from '@/app/actions/auth';
-import { PrismaClient } from '@prisma/client';
+import { getNotes } from '@/app/actions/notes';
 import NoteCard from './note-card';
 import CreateNoteButton from './create-note-button';
-
-const prisma = new PrismaClient();
 
 const iconMap: Record<string, string> = {
   corp_cmo_coo: '📋',
@@ -36,25 +34,17 @@ export default async function DashboardPage() {
     );
   }
 
-  const categories = await prisma.note.findMany({
-    where: {
-      userId: user.id,
-      parentId: null,
-      type: 'category',
-    },
-    include: {
-      children: {
-        orderBy: [
-          { order: 'asc' },
-          { createdAt: 'asc' },
-        ],
-      },
-    },
-    orderBy: [
-      { order: 'asc' },
-      { createdAt: 'asc' },
-    ],
-  });
+const allNotes = await getNotes();
+  const categories = allNotes.filter((note: any) => 
+    note.parentId === null && note.type === 'category'
+  ).map((category:any) => ({
+    ...category,
+    children: allNotes.filter((note: any) => note.parentId === category.id)
+      .sort((a: any, b: any) => {
+        if (a.order !== b.order) return (a.order || 0) - (b.order || 0);
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+      })
+  })).sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
   return (
     <div className="min-h-screen bg-gray-50">

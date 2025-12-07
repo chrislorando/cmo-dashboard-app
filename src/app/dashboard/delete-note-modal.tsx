@@ -35,7 +35,7 @@ export default function DeleteNoteModal({
 
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-50 z-50" onClick={onClose}></div>
+      <div className="fixed inset-0 bg-black opacity-50 z-50" onClick={onClose}></div>
       <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
         <div className="bg-white rounded-xl p-6 w-full max-w-md shadow-xl pointer-events-auto">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Delete Note</h3>

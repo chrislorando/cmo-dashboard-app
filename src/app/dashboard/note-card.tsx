@@ -8,7 +8,6 @@ import DeleteNoteModal from './delete-note-modal';
 interface Note {
   id: string;
   name: string;
-  displayName: string;
   content: string;
   type: string;
   parentId?: string | null;
@@ -85,7 +84,7 @@ export default function NoteCard({ note, icon, allCategories = [] }: NoteCardPro
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
           <span className="text-lg">{icon}</span>
-          <h3 className="text-base font-semibold text-gray-900">{note.displayName}</h3>
+          <h3 className="text-base font-semibold text-gray-900">{note.name}</h3>
         </div>
         <div className="flex gap-1">
           <button
@@ -121,7 +120,7 @@ export default function NoteCard({ note, icon, allCategories = [] }: NoteCardPro
                   : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300'
               } border`}
             >
-              {child.displayName}
+              {child.name}
             </button>
           ))}
         </div>
@@ -145,7 +144,7 @@ export default function NoteCard({ note, icon, allCategories = [] }: NoteCardPro
       <EditNoteModal
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
-        noteName={activeNote.displayName}
+        noteName={activeNote.name}
         onSave={handleSaveEdit}
       />
 
@@ -154,7 +153,7 @@ export default function NoteCard({ note, icon, allCategories = [] }: NoteCardPro
         <DeleteNoteModal
           isOpen={showDeleteModal}
           onClose={() => setShowDeleteModal(false)}
-          noteName={noteToDelete.displayName}
+          noteName={noteToDelete.name}
           childCount={noteToDelete.children?.length || 0}
           onConfirm={confirmDelete}
         />

@@ -33,7 +33,6 @@ model Note {
   userId      String
   parentId    String?
   name        String
-  displayName String
   content     String    @db.Text @default("")
   type        String
   order       Int       @default(0)
