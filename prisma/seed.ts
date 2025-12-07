@@ -29,7 +29,7 @@ async function main() {
       type: 'category',
       name: 'Corp CMO/COO',
       order: 1,
-      
+      content: '• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse',
     },
   });
 
@@ -41,7 +41,7 @@ async function main() {
       type: 'category',
       name: 'CMO General',
       order: 2,
-      
+      content: '• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse',
     },
   });
 
@@ -53,7 +53,7 @@ async function main() {
       type: 'category',
       name: 'CNO/FMD',
       order: 3,
-      
+      content: '• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse',
     },
   });
 
@@ -64,7 +64,7 @@ async function main() {
       type: 'category',
       name: 'CNO/FMD Facility',
       order: 4,
-      
+      content: '• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse',
     },
   });
 
@@ -84,7 +84,7 @@ async function main() {
         type: 'subcategory',
         name: facility.name,
         order: facility.order,
-        
+        content: `• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse\n• ${facility.name} facility specific notes and updates`,
       },
     });
   }
@@ -96,7 +96,7 @@ async function main() {
       type: 'category',
       name: 'Productivity',
       order: 5,
-      
+      content: '• Lorem ipsum dolor sit amet, consectetur adipiscing elit\n• Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\n• Ut enim ad minim veniam, quis nostrud exercitation ullamco\n• Duis aute irure dolor in reprehenderit in voluptate velit esse',
     },
   });
 

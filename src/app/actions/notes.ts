@@ -14,7 +14,7 @@ export async function getNotes() {
       userId: session.userId,
     },
     orderBy: [
-      { createdAt: 'desc' },
+      { order: 'asc' },
     ],
   });
 

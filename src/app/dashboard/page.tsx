@@ -35,16 +35,12 @@ export default async function DashboardPage() {
   }
 
 const allNotes = await getNotes();
-  const categories = allNotes.filter((note: any) => 
+  const categories = allNotes.filter(note => 
     note.parentId === null && note.type === 'category'
-  ).map((category:any) => ({
+  ).map(category => ({
     ...category,
-    children: allNotes.filter((note: any) => note.parentId === category.id)
-      .sort((a: any, b: any) => {
-        if (a.order !== b.order) return (a.order || 0) - (b.order || 0);
-        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-      })
-  })).sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    children: allNotes.filter(note => note.parentId === category.id)
+  }));
 
   return (
     <div className="min-h-screen bg-gray-50">
