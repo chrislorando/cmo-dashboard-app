@@ -16,6 +16,7 @@ CREATE TABLE "cmo_dashboard"."notes" (
     "userId" TEXT NOT NULL,
     "parentId" TEXT,
     "name" TEXT NOT NULL,
+    "displayName" TEXT NOT NULL,
     "content" TEXT NOT NULL DEFAULT '',
     "type" TEXT NOT NULL,
     "order" INTEGER NOT NULL DEFAULT 0,
